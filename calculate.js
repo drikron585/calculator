@@ -26,6 +26,13 @@ operatorButtons.forEach(button => {
             calculated = true;
             return;
         }
+        else if(button.innerText === 'DEL'){
+            if(display.innerText.length === 0){
+                return;
+            }
+            display.innerText = display.innerText.slice(0,-1);
+            return;
+        }
         display.innerText += (' ' + button.innerText + ' ');
     });
 });
