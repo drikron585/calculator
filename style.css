@@ -1,0 +1,45 @@
+body{
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    width:100vw;
+    height:80vh;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+button{
+    min-width: 10vw;
+    min-height: 10vh;
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+
+}
+
+.calculator{
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.display{
+    border: 1px;
+    border-style: solid;
+    border-color: #000;
+    display: flex;
+    flex: 1 1 100%;
+    width: 50%;
+    min-height: 5vh;
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.row{
+    gap: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
