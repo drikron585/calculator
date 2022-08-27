@@ -1,21 +1,42 @@
-const buttons = document.querySelectorAll('.calc-button');
+let calculated = false;
+const digitButtons = document.querySelectorAll('.calc-button');
 const display = document.querySelector('.display');
-console.log(buttons);
-buttons.forEach(button => {
+digitButtons.forEach(button => {
     button.addEventListener('click',function(){
+        if(calculated === true){
+            display.innerHTML = '';
+            calculated = false;
+        }
         display.innerText += button.innerText;
     });
 });
+
+const operatorButtons = document.querySelectorAll('.calc-button-operator');
+operatorButtons.forEach(button => {
+    button.addEventListener('click',function(){
+        if(calculated === true){
+            display.innerHTML = '';
+            calculated = false;
+        }
+        else if(button.innerText === '='){
+            if(calculated === true){
+                return;
+            }
+            display.innerText = evaluateExpression(display.innerText);
+            calculated = true;
+            return;
+        }
+        display.innerText += (' ' + button.innerText + ' ');
+    });
+});
+
+
+
 
 const clearButton = document.querySelector('#clear');
 
 clearButton.addEventListener('click',function(){
     display.innerText = '';
-} );
-
-const equalsButton = document.querySelector('#equals');
-equalsButton.addEventListener('click',function(){
-
 } );
 
 function add(num1,num2){
@@ -49,6 +70,11 @@ function operate(num1,num2,operator){
     }
 }
 
-function evaluateExpression(){
-    return "unimplemented";
+function evaluateExpression(expression){
+    alert(expression);
+    // split on every three values, if theres ever not three values then say not a valid expression
+    let expressionArray = [];
+    expressionArray = expression.split(' ');
+    console.log(expressionArray);
+    // got array - now evaluate with bedmas
 }
